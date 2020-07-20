@@ -16,9 +16,9 @@ public class Player_Easy implements Player {
         int coloana;
         while (true) {
             linie = r.nextInt(3);
-            coloana = r.nextInt(3) + 1;
-            if (matrice[linie][coloana * 2] == ' ') {
-                matrice[linie][coloana * 2] = c;
+            coloana = r.nextInt(3) ;
+            if (matrice[linie][coloana ] == ' ') {
+                matrice[linie][coloana ] = c;
                 break;
             }
         }

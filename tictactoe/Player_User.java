@@ -21,19 +21,9 @@ public class Player_User implements Player {
                 if (a > 3 || b > 3 || a < 1 || b < 1) {
                     System.out.println("Coordinates should be from 1 to 3!");
                 } else {
-                    switch (b) {  //transformare coordonate primite--> in forma folosita de mine la matrice
-                        case 1:
-                            b = 2;
-                            break;
-                        case 2:
-                            b = 1;
-                            break;
-                        case 3:
-                            b = 0;
-                            break;
-                    }
-                    if (matrice[b][a * 2] == ' ') {
-                        matrice[b][a * 2] = c;
+
+                    if (matrice[a-1][b-1] == ' ') {
+                        matrice[a-1][b-1] = c;
                         break;
                     } else
                         System.out.println("This cell is occupied! Choose another one!");

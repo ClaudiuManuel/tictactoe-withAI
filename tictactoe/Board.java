@@ -22,7 +22,7 @@ public class Board {
                 else
                     System.out.print(' ');
                 if(j==2)
-                    System.out.println("|");
+                    System.out.print(" |");
                 System.out.print(" ");
             }
             System.out.print("\n");

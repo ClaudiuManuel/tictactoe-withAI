@@ -22,10 +22,10 @@ public class Player_Hard implements Player {
         int bestColumn = -5;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (matrice[i][(j + 1) * 2] == ' ') {
-                    matrice[i][(j + 1) * 2] = c;
+                if (matrice[i][j] == ' ') {
+                    matrice[i][j] = c;
                     int score = minimax(matrice, 0, false);
-                    matrice[i][(j + 1) * 2] = ' '; //revenire la starea initiala.In caz contrar la fiecare pas s-ar face o mutare(pe prima pozitie gasita libera)
+                    matrice[i][j] = ' '; //revenire la starea initiala.In caz contrar la fiecare pas s-ar face o mutare(pe prima pozitie gasita libera)
                     //System.out.println(bestScore + " in functia principala inainte de schimb " + score+ " actual");
                     if (score > bestScore) {
                         bestScore = score;
@@ -35,7 +35,7 @@ public class Player_Hard implements Player {
                 }
             }
         }
-        matrice[bestLine][(bestColumn + 1) * 2] = c;
+        matrice[bestLine][bestColumn] = c;
     }
 
     public int minimax(char[][] matrice, int depth, boolean isMax) {
@@ -53,10 +53,10 @@ public class Player_Hard implements Player {
             int bestSc = Integer.MIN_VALUE;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    if (matrice[i][(j + 1) * 2] == ' ') {
-                        matrice[i][(j + 1) * 2] = c;
+                    if (matrice[i][j] == ' ') {
+                        matrice[i][j] = c;
                         int score = minimax(matrice, depth + 1, false);
-                        matrice[i][(j + 1) * 2] = ' ';
+                        matrice[i][j] = ' ';
                         bestSc = Math.max(score, bestSc);
                         //System.out.println(bestSc+" pe max "+depth);
                     }
@@ -67,10 +67,10 @@ public class Player_Hard implements Player {
             int worstScore = Integer.MAX_VALUE;
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
-                    if (matrice[i][(j + 1) * 2] == ' ') {
-                        matrice[i][(j + 1) * 2] = this.otherPlayer();
+                    if (matrice[i][j] == ' ') {
+                        matrice[i][j] = this.otherPlayer();
                         int score = minimax(matrice, depth + 1, true);
-                        matrice[i][(j + 1) * 2] = ' ';
+                        matrice[i][j] = ' ';
                         worstScore = Math.min(worstScore, score);
                         //System.out.println(worstScore+" pe min "+depth);
                     }
@@ -84,7 +84,7 @@ public class Player_Hard implements Player {
         int empty = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (matrice[i][(j + 1) * 2] == ' ')
+                if (matrice[i][j] == ' ')
                     empty++;
             }
         }

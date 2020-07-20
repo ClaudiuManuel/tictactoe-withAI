@@ -66,20 +66,20 @@ public class Game {
         boolean empty = false;
         char winner = 'n';//verificare daca ramane "no"(no winner found:n)
         //diagonala principala + diagonala secundara
-        if (matrice[1][4] != ' ' && ((matrice[0][2] == matrice[1][4] && matrice[0][2] == matrice[2][6]) || (matrice[0][6] == matrice[1][4] && matrice[0][6] == matrice[2][2]))) {
-            winner = matrice[1][4];
+        if (matrice[1][1] != ' ' && ((matrice[0][0] == matrice[1][1] && matrice[0][0] == matrice[2][2]) || (matrice[0][2] == matrice[1][1] && matrice[0][2] == matrice[2][0]))) {
+            winner = matrice[1][1];
         } else {
             for (int i = 0; i < 3; i++) {
-                if (matrice[i][2] != ' ' && matrice[i][2] == matrice[i][4] && matrice[i][2] == matrice[i][6]) {
-                    winner = matrice[i][2]; //winner gasit pe linie
+                if (matrice[i][0] != ' ' && matrice[i][0] == matrice[i][1] && matrice[i][0] == matrice[i][2]) {
+                    winner = matrice[i][0]; //winner gasit pe linie
                     break;
                 }
-                if (matrice[0][(i + 1) * 2] != ' ' && matrice[0][(i + 1) * 2] == matrice[1][(i + 1) * 2] && matrice[0][(i + 1) * 2] == matrice[2][(i + 1) * 2]) {
-                    winner = matrice[0][(i + 1) * 2]; //winner gasit pe coloana
+                if (matrice[0][i] != ' ' && matrice[0][i] == matrice[1][i] && matrice[0][i] == matrice[2][i]) {
+                    winner = matrice[0][i]; //winner gasit pe coloana
                     break;
                 }
                 for (int j = 0; j < 3; j++) {
-                    if (matrice[i][(j + 1) * 2] == ' ')
+                    if (matrice[i][j] == ' ')
                         empty = true;
                 }
             }
